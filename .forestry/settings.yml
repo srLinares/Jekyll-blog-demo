@@ -4,8 +4,13 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: heading
-  label: Content
+- type: directory
+  path: _projects
+  label: Projects
+  create: all
+  match: "*"
+  templates:
+  - project
 - type: jekyll-posts
   label: Posts
   create: all
@@ -17,6 +22,11 @@ sections:
   templates:
   - landing-page
   - page
+- type: heading
+  label: Content
+- type: document
+  path: _data/information.yml
+  label: Contact Information
 - type: directory
   path: _people
   label: People
@@ -24,16 +34,6 @@ sections:
   match: "*"
   templates:
   - person
-- type: directory
-  path: _projects
-  label: Projects
-  create: all
-  match: "*"
-  templates:
-  - project
-- type: document
-  path: _data/information.yml
-  label: Contact Information
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
